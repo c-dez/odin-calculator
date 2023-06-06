@@ -16,13 +16,27 @@ display.style.backgroundColor = 'green'
 //display text
 display.textContent = 'hello'
 
-//botones all
+//botones all btnContainer
 const btnContainer = document.createElement('div');
 calculator.appendChild(btnContainer);
-
+btnContainer.classList.add('btnContainer')
 btnContainer.style.width = '80%'
 btnContainer.style.height = '80%'
 btnContainer.style.margin = '5px';
-
 btnContainer.style.border = '1px solid black'
 
+//buttons numbers
+const numbersGrid = document.createElement('div');
+btnContainer.appendChild(numbersGrid);
+numbersGrid.classList.add('numbersGrid')
+
+//function creates num number of buttons
+function createButtons(num,father){
+for(let i =0; i< num; i++){
+    const btn = document.createElement('button');
+    btn.classList.add('btn'+[i])
+    father.appendChild(btn);
+}
+
+}
+createButtons(10,numbersGrid);
