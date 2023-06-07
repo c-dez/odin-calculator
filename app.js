@@ -14,7 +14,7 @@ display.style.margin = '5px';
 // display.style.boxSizing = 'box'
 display.style.backgroundColor = 'green'
 //display text
-display.textContent = 'hello'
+
 
 //botones all btnContainer
 const btnContainer = document.createElement('div');
@@ -56,26 +56,61 @@ allNumBtn.forEach(item =>{
     item.style.height='40px'
 
 })
-//array de objetos
 
-
-// function CreateBtnObj(symbol){
-//     this.symbol = symbol;
-//     this.classList = `btn${symbol}`;
-//     this.behavior =()=>{
-
-//     }
-// }
- allNumBtn[0].textContent =7;
- allNumBtn[1].textContent =8;
- allNumBtn[2].textContent =9;
- allNumBtn[3].textContent =4;
- allNumBtn[4].textContent =5;
- allNumBtn[5].textContent =6;
- allNumBtn[6].textContent =1;
- allNumBtn[7].textContent =2;
- allNumBtn[8].textContent =3;
- allNumBtn[9].textContent =0;
- allNumBtn[10].textContent ='.';
- allNumBtn[11].textContent ='+/-';
-
+ //mejor hacer lo anterio con switches y agregar class=btn'x'
+ function labels(item,symbol){
+    item.classList.add(`numb${symbol}`);
+    item.textContent=`${symbol}`;
+    item.addEventListener('mousedown',(item)=>{
+    console.log(symbol)
+    // display.textContent = `${displayNum1.join('').toString()}`
+    displayNum1.push(symbol);
+    })
+    item.addEventListener('mouseup',(item)=>{
+        display.textContent = `${displayNum1.join('').toString()}`
+    })
+}
+allNumBtn.forEach((item)=>{
+    switch (item){
+        case allNumBtn[0]:
+            labels(item, 7);
+                break;
+        case allNumBtn[1]:
+            labels(item, 8);
+                break;
+        case allNumBtn[2]:
+            labels(item, 9);
+                break;
+        case allNumBtn[3]:
+            labels(item, 4);
+                break;
+        case allNumBtn[4]:
+            labels(item, 5);
+                break;
+        case allNumBtn[5]:
+            labels(item, 6);
+                break;        
+        case allNumBtn[6]:
+            labels(item, 1);
+                break;
+        case allNumBtn[7]:
+            labels(item, 2);
+                break;
+        case allNumBtn[8]:
+            labels(item, 3);
+                break;   
+        case allNumBtn[9]:
+            labels(item, '+/-');
+                break;
+        case allNumBtn[10]:
+            labels(item, 0);
+                break;
+        case allNumBtn[11]:
+            labels(item, '.');
+                break;   
+    }
+},0)
+//display   
+const displayNum1 = [];
+const displayNum2 = [];
+display.textContent = `${displayNum1.join('').toString()}`
