@@ -20,10 +20,10 @@ display.style.backgroundColor = 'green'
 const btnContainer = document.createElement('div');
 calculator.appendChild(btnContainer);
 btnContainer.classList.add('btnContainer')
-btnContainer.style.width = '80%'
-btnContainer.style.height = '80%'
+// btnContainer.style.width = '80%'
+// btnContainer.style.height = '80%'
 btnContainer.style.margin = '5px';
-btnContainer.style.border = '1px solid black'
+// btnContainer.style.border = '1px solid black'
 
 //buttons numbers numbersGrid
 const numbersGrid = document.createElement('div');
@@ -113,4 +113,13 @@ allNumBtn.forEach((item)=>{
 //display   
 const displayNum1 = [];
 const displayNum2 = [];
-display.textContent = `${displayNum1.join('').toString()}`
+const num1Dis = displayNum1.join('').toString();
+display.textContent = num1Dis 
+
+
+//extra
+const extraBtn = document.querySelector('#extraBtn');
+calculator.appendChild(extraBtn);
+extraBtn.display ='flex';
+extraBtn.style.border = '1px solid pink';
+createButtons(4,extraBtn);
