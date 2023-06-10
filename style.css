@@ -12,6 +12,7 @@
 #display{
     background-color: green;
     display: flex;
+    flex-direction: row-reverse;
     align-self: center;
     width: 80%;
     height: 25px;
