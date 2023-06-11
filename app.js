@@ -1,11 +1,12 @@
-//testear que display muestre la suma de dos arrays
+//variables
 const numb1 = [];
 const numb2 =[3];
 let numb1Str = (numb1.join('').toString());
 let numb2str = (numb2.join('').toString());
+
 // let resultado = parseInt(numb1Str) + parseInt(numb2str); 
 let resultado =  numb1Str
-const display = document.querySelector('#display');
+const display = document.querySelector('#display .display1');
 
 //create buttons for numbers 0 -9 and negative and dot
 function createBtn(numButtons,father){
@@ -58,3 +59,10 @@ numButtons[8].textContent = '3';
 numButtons[9].textContent = 'Neg';
 numButtons[10].textContent = '0';
 numButtons[11].textContent = '.';
+
+//display
+
+//test sum fun
+function sumOperands(){
+    console.log((parseInt(display.textContent))+1)
+}
