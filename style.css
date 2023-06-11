@@ -12,11 +12,13 @@
 #display{
     background-color: green;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction :column;
     align-self: center;
     width: 80%;
     height: 25%;
     margin-top: 10px;
+    /* justify-content: end; */
+    align-items: end;
 }
 
 #numbersGrid{
