@@ -1,116 +1,74 @@
-//Calculadora
-//crear lo suficiente para probar
-//display que muestre '1+1'
-const calculator = document.querySelector('.calculator')
-//display
-const display = document.createElement('div');
-calculator.appendChild(display);
+//variables
+const numb1 = [];
+const numb2 =[];
+let numb1Str = (numb1.join('').toString());
+let numb2str = (numb2.join('').toString());
 
-display.style.display = 'flex';
-display.style.width = '80%'
-display.style.height = '15%'
-display.style.border = '1px solid black'
-display.style.margin = '5px';
-// display.style.boxSizing = 'box'
-display.style.backgroundColor = 'green'
-//display text
+// let resultado = parseInt(numb1Str) + parseInt(numb2str); 
+let resultado =  numb1Str
+const display = document.querySelector('#display .display1');
 
-
-//botones all btnContainer
-const btnContainer = document.createElement('div');
-calculator.appendChild(btnContainer);
-btnContainer.classList.add('btnContainer')
-btnContainer.style.width = '80%'
-btnContainer.style.height = '80%'
-btnContainer.style.margin = '5px';
-btnContainer.style.border = '1px solid black'
-
-//buttons numbers numbersGrid
-const numbersGrid = document.createElement('div');
-btnContainer.appendChild(numbersGrid);
-numbersGrid.classList.add('numbersGrid')
-numbersGrid.style.display='flex'
-numbersGrid.style.flexWrap= 'wrap'
-// numbersGrid.style.flexDirection = 'row-reverse'
-numbersGrid.style.justifyContent = 'center';
-
-
-//function creates num number of buttons
-function createButtons(num,father){
-for(let i =0; i<num; i++){
-    const btn = document.createElement('button');
-    // btn.id=('btn'+[i]);
-    btn.textContent = `${[i]}`;
-    father.appendChild(btn);
+//create buttons for numbers 0 -9 and negative and dot
+function createBtn(numButtons,father,w,h){
+    for(let i = 0; i<numButtons; i++){
+        let btn = document.createElement('button');
+        father.appendChild(btn);
+        btn.style.width = '33%';
+        btn.style.height = '25%';
+        btn.classList = `btn${i}`;
 }
 }
-createButtons(12,numbersGrid);
-//btn 0-9
-const allNumBtn =Array.from( numbersGrid.querySelectorAll('button'));
-numbersGrid.id='numbersGrid';
+const numbersGrid = document.querySelector('#numbersGrid');
+createBtn(12, numbersGrid);
 
-
-//asigna tama;o a cada button de allNumBtn
-allNumBtn.forEach(item =>{
-    item.style.width='30%'
-    item.style.height='40px'
-
+//hacer que botones pasen numeros a primer array
+const numButtons = Array.from(numbersGrid.querySelectorAll('button'));
+//etiqutar butones
+/////
+numButtons.forEach((item)=>{
+    item.addEventListener('mousedown',()=>passNum(item))
+    item.addEventListener('mouseup', ()=>(display.textContent = numb1.join('').toString()))
 })
 
- //mejor hacer lo anterio con switches y agregar class=btn'x'
- function labels(item,symbol){
-    item.classList.add(`numb${symbol}`);
-    item.textContent=`${symbol}`;
-    item.addEventListener('mousedown',(item)=>{
-    console.log(symbol)
-    // display.textContent = `${displayNum1.join('').toString()}`
-    displayNum1.push(symbol);
-    })
-    item.addEventListener('mouseup',(item)=>{
-        display.textContent = `${displayNum1.join('').toString()}`
-    })
+ function passNum(item){
+    numb1.push(item.textContent);
+    console.log(numb1)
+ } 
+ 
+ //number labels
+numButtons[0].textContent = '7';
+numButtons[1].textContent = '8';
+numButtons[2].textContent = '9';
+numButtons[3].textContent = '4';
+numButtons[4].textContent = '5';
+numButtons[5].textContent = '6';
+numButtons[6].textContent = '1';
+numButtons[7].textContent = '2';
+numButtons[8].textContent = '3';
+numButtons[9].textContent = '-';
+numButtons[10].textContent = '0';
+numButtons[11].textContent = '.';
+
+//display
+
+//test sum fun
+function test(){
+    console.log((parseInt(display.textContent))+1)
 }
-allNumBtn.forEach((item)=>{
-    switch (item){
-        case allNumBtn[0]:
-            labels(item, 7);
-                break;
-        case allNumBtn[1]:
-            labels(item, 8);
-                break;
-        case allNumBtn[2]:
-            labels(item, 9);
-                break;
-        case allNumBtn[3]:
-            labels(item, 4);
-                break;
-        case allNumBtn[4]:
-            labels(item, 5);
-                break;
-        case allNumBtn[5]:
-            labels(item, 6);
-                break;        
-        case allNumBtn[6]:
-            labels(item, 1);
-                break;
-        case allNumBtn[7]:
-            labels(item, 2);
-                break;
-        case allNumBtn[8]:
-            labels(item, 3);
-                break;   
-        case allNumBtn[9]:
-            labels(item, '+/-');
-                break;
-        case allNumBtn[10]:
-            labels(item, 0);
-                break;
-        case allNumBtn[11]:
-            labels(item, '.');
-                break;   
-    }
-},0)
-//display   
-const displayNum1 = [];
-const displayNum2 = [];
-display.textContent = `${displayNum1.join('').toString()}`
+// operators buttons
+const operandsGrid = document.querySelector('#operands');
+createBtn(5, operandsGrid);
+const operandsBtn = Array.from(operandsGrid.querySelectorAll('button'))
+operandsBtn[0].textContent = '+';
+operandsBtn[1].textContent = '-';
+operandsBtn[2].textContent = '*';
+operandsBtn[3].textContent = '/';
+operandsBtn[4].textContent = '=';
+
+
+operandsBtn.forEach( (item)=>{
+    item.style.height = '100%';
+    item.style.backgroundColor = 'aqua';
+})
+
+
