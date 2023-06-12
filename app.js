@@ -1,15 +1,44 @@
-//variables
-const numb1 = [];
-const numb2 =[];
-let numb1Str = (numb1.join('').toString());
-let numb2str = (numb2.join('').toString());
 
-// let resultado = parseInt(numb1Str) + parseInt(numb2str); 
-let resultado =  numb1Str
-const display = document.querySelector('#display .display1');
+const display1 = document.querySelector('#display .display1');
+const display2 = document.querySelector('#display .display2');
+const resultado = document.querySelector('#display .resultado');
+const numbersGrid = document.querySelector('#numbersGrid');
+const operatorsGrid = document.querySelector('#operatorsGrid');
 
-//create buttons for numbers 0 -9 and negative and dot
-function createBtn(numButtons,father,w,h){
+//create buttons for operands & operators
+createBtn(12, numbersGrid);//creates operands buttons 
+createBtn(6, operatorsGrid);//creates operators buttons
+const operandsBtns = Array.from(numbersGrid.querySelectorAll('button'));
+const operatorsBtns = Array.from(operatorsGrid.querySelectorAll('button'))
+
+ //number labels
+operandsBtns[0].textContent = '7';
+operandsBtns[1].textContent = '8';
+operandsBtns[2].textContent = '9';
+operandsBtns[3].textContent = '4';
+operandsBtns[4].textContent = '5';
+operandsBtns[5].textContent = '6';
+operandsBtns[6].textContent = '1';
+operandsBtns[7].textContent = '2';
+operandsBtns[8].textContent = '3';
+operandsBtns[9].textContent = '-';
+operandsBtns[10].textContent = '0';
+operandsBtns[11].textContent = '.';
+
+//operators labels
+operatorsBtns[0].textContent = '+';
+operatorsBtns[1].textContent = '-';
+operatorsBtns[2].textContent = '*';
+operatorsBtns[3].textContent = '/';
+operatorsBtns[4].textContent = '=';
+operatorsBtns[5].textContent = 'C';
+
+
+//operators style
+operatorsBtns.forEach((item)=>{
+    item.style.height = '100%'
+})
+function createBtn(numButtons,father){
     for(let i = 0; i<numButtons; i++){
         let btn = document.createElement('button');
         father.appendChild(btn);
@@ -18,57 +47,28 @@ function createBtn(numButtons,father,w,h){
         btn.classList = `btn${i}`;
 }
 }
-const numbersGrid = document.querySelector('#numbersGrid');
-createBtn(12, numbersGrid);
 
-//hacer que botones pasen numeros a primer array
-const numButtons = Array.from(numbersGrid.querySelectorAll('button'));
-//etiqutar butones
-/////
-numButtons.forEach((item)=>{
-    item.addEventListener('mousedown',()=>passNum(item))
-    item.addEventListener('mouseup', ()=>(display.textContent = numb1.join('').toString()))
+//display test
+// display1.textContent ='1'
+// display2.textContent ='2'
+// resultado.textContent = '3'
+
+//operands buttons add a number to an array 
+//& array to a string & that string show it in .display1
+let display1Array = [];//se forma con .push()
+let operands1 = '';//se forma con display1Array.join(')
+operandsBtns.forEach((item)=>{
+    item.addEventListener('mousedown',()=>{
+        display1Array.push(item.textContent);
+
+    })
+    item.addEventListener('mouseup',()=>{
+       operands1 = display1Array.join(''); 
+       console.log(operands1)
+       display1.textContent = operands1
+    })
 })
 
- function passNum(item){
-    numb1.push(item.textContent);
-    console.log(numb1)
- } 
- 
- //number labels
-numButtons[0].textContent = '7';
-numButtons[1].textContent = '8';
-numButtons[2].textContent = '9';
-numButtons[3].textContent = '4';
-numButtons[4].textContent = '5';
-numButtons[5].textContent = '6';
-numButtons[6].textContent = '1';
-numButtons[7].textContent = '2';
-numButtons[8].textContent = '3';
-numButtons[9].textContent = '-';
-numButtons[10].textContent = '0';
-numButtons[11].textContent = '.';
-
-//display
-
-//test sum fun
-function test(){
-    console.log((parseInt(display.textContent))+1)
-}
-// operators buttons
-const operandsGrid = document.querySelector('#operands');
-createBtn(5, operandsGrid);
-const operandsBtn = Array.from(operandsGrid.querySelectorAll('button'))
-operandsBtn[0].textContent = '+';
-operandsBtn[1].textContent = '-';
-operandsBtn[2].textContent = '*';
-operandsBtn[3].textContent = '/';
-operandsBtn[4].textContent = '=';
-
-
-operandsBtn.forEach( (item)=>{
-    item.style.height = '100%';
-    item.style.backgroundColor = 'aqua';
-})
-
-
+//clicking on a operator button except 'C' saves the text content to a variable
+//& makes the operands buttons push to display2Array
+//& this array shows in display2
