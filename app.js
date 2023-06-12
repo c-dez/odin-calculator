@@ -53,14 +53,22 @@ function createBtn(numButtons,father){
 // display2.textContent ='2'
 // resultado.textContent = '3'
 
-//operands buttons add a number to an array & array to a string & that string show it in .display1
+//operands buttons add a number to an array 
+//& array to a string & that string show it in .display1
 let display1Array = [];
+let testArray = display1Array.join('')
 operandsBtns.forEach((item)=>{
     item.addEventListener('mousedown',()=>{
         display1Array.push(item.textContent);
 
     })
     item.addEventListener('mouseup',()=>{
-       display1.textContent = display1Array.join('').toString(); 
+       testArray = display1Array.join(''); 
+       console.log(testArray)
+       display1.textContent = testArray
     })
 })
+
+//clicking on a operator button except 'C' saves the text content to a variable
+//& makes the operands buttons push to display2Array
+//& this array shows in display2
