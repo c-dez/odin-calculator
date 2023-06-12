@@ -1,6 +1,7 @@
 
-const display = document.querySelector('#display .display1');
+const display1 = document.querySelector('#display .display1');
 const display2 = document.querySelector('#display .display2');
+const resultado = document.querySelector('#display .resultado');
 const numbersGrid = document.querySelector('#numbersGrid');
 const operatorsGrid = document.querySelector('#operatorsGrid');
 
@@ -45,5 +46,7 @@ function createBtn(numButtons,father){
 }
 }
 
-
-
+//display test
+display1.textContent ='1'
+display2.textContent ='2'
+resultado.textContent = '3'
