@@ -2,27 +2,27 @@
 const display = document.querySelector('#display .display1');
 const display2 = document.querySelector('#display .display2');
 const numbersGrid = document.querySelector('#numbersGrid');
-const operandsGrid = document.querySelector('#operands');
+const operatorsGrid = document.querySelector('#operatorsGrid');
 
-//create buttons for numbers 0 -9 and negative and dot
+//create buttons for operands & operators
 createBtn(12, numbersGrid);//creates operands buttons 
-createBtn(5, operandsGrid);//creates operators buttons
-const numButtons = Array.from(numbersGrid.querySelectorAll('button'));
-const operatorsBtns = Array.from(operandsGrid.querySelectorAll('button'))
+createBtn(5, operatorsGrid);//creates operators buttons
+const operandsBtns = Array.from(numbersGrid.querySelectorAll('button'));
+const operatorsBtns = Array.from(operatorsGrid.querySelectorAll('button'))
 
  //number labels
-numButtons[0].textContent = '7';
-numButtons[1].textContent = '8';
-numButtons[2].textContent = '9';
-numButtons[3].textContent = '4';
-numButtons[4].textContent = '5';
-numButtons[5].textContent = '6';
-numButtons[6].textContent = '1';
-numButtons[7].textContent = '2';
-numButtons[8].textContent = '3';
-numButtons[9].textContent = '-';
-numButtons[10].textContent = '0';
-numButtons[11].textContent = '.';
+operandsBtns[0].textContent = '7';
+operandsBtns[1].textContent = '8';
+operandsBtns[2].textContent = '9';
+operandsBtns[3].textContent = '4';
+operandsBtns[4].textContent = '5';
+operandsBtns[5].textContent = '6';
+operandsBtns[6].textContent = '1';
+operandsBtns[7].textContent = '2';
+operandsBtns[8].textContent = '3';
+operandsBtns[9].textContent = '-';
+operandsBtns[10].textContent = '0';
+operandsBtns[11].textContent = '.';
 
 //operators labels
 operatorsBtns[0].textContent = '+';
