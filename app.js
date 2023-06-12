@@ -7,7 +7,7 @@ const operatorsGrid = document.querySelector('#operatorsGrid');
 
 //create buttons for operands & operators
 createBtn(12, numbersGrid);//creates operands buttons 
-createBtn(5, operatorsGrid);//creates operators buttons
+createBtn(6, operatorsGrid);//creates operators buttons
 const operandsBtns = Array.from(numbersGrid.querySelectorAll('button'));
 const operatorsBtns = Array.from(operatorsGrid.querySelectorAll('button'))
 
@@ -31,6 +31,8 @@ operatorsBtns[1].textContent = '-';
 operatorsBtns[2].textContent = '*';
 operatorsBtns[3].textContent = '/';
 operatorsBtns[4].textContent = '=';
+operatorsBtns[5].textContent = 'C';
+
 
 //operators style
 operatorsBtns.forEach((item)=>{
@@ -47,6 +49,18 @@ function createBtn(numButtons,father){
 }
 
 //display test
-display1.textContent ='1'
-display2.textContent ='2'
-resultado.textContent = '3'
+// display1.textContent ='1'
+// display2.textContent ='2'
+// resultado.textContent = '3'
+
+//operands buttons add a number to an array & array to a string & that string show it in .display1
+let display1Array = [];
+operandsBtns.forEach((item)=>{
+    item.addEventListener('mousedown',()=>{
+        display1Array.push(item.textContent);
+
+    })
+    item.addEventListener('mouseup',()=>{
+       display1.textContent = display1Array.join('').toString(); 
+    })
+})
