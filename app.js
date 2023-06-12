@@ -55,17 +55,17 @@ function createBtn(numButtons,father){
 
 //operands buttons add a number to an array 
 //& array to a string & that string show it in .display1
-let display1Array = [];
-let testArray = display1Array.join('')
+let display1Array = [];//se forma con .push()
+let operands1 = '';//se forma con display1Array.join(')
 operandsBtns.forEach((item)=>{
     item.addEventListener('mousedown',()=>{
         display1Array.push(item.textContent);
 
     })
     item.addEventListener('mouseup',()=>{
-       testArray = display1Array.join(''); 
-       console.log(testArray)
-       display1.textContent = testArray
+       operands1 = display1Array.join(''); 
+       console.log(operands1)
+       display1.textContent = operands1
     })
 })
 
