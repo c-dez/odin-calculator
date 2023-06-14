@@ -32,5 +32,6 @@ operandsBtns.forEach((button)=>{
 operatorBtns.forEach((button)=>{
     button.addEventListener('mousedown',()=>{
        operator = button.textContent;
+       display.textContent += operator;
     })
 })
