@@ -1,8 +1,9 @@
-const display = document.querySelector('.display')
-const operandsBtns = document.querySelectorAll('#operand')
-const operatorBtns = document.querySelectorAll('#operator')
-const clearBtn = document.querySelector('#clear')
-const equalsBtn = document.querySelector('#equals')
+const display = document.querySelector('.display');
+const operandsBtns = document.querySelectorAll('#operand');
+const operatorBtns = document.querySelectorAll('#operator');
+const clearBtn = document.querySelector('#clear');
+const equalsBtn = document.querySelector('#equals');
+const negBtn = document.querySelector('#neg');
 //first operand
 let firstOperand = '';
 //operator
@@ -48,6 +49,16 @@ equalsBtn.addEventListener('mousedown',()=>{
     if(operator == '+'){
         sum(firstOperand, secondOperand)
         display.textContent = result;
+    }
+})
+//negBtn
+negBtn.addEventListener('mousedown', ()=>{
+    if(!operatorAdded){
+        firstOperand += '-';
+        display.textContent += firstOperand;
+    }else{
+        secondOperand += '-';
+        display.textContent += secondOperand;
     }
 })
 
