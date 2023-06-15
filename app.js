@@ -9,22 +9,27 @@ let firstOperand = '';
 let operator = '';
 //second operand
 let secondOperand = '';
-
+let operatorAdded = false;
 //clearBtn
 clearBtn.addEventListener('mousedown',()=>{
     // display.textContent = '';
     firstOperand = '';
     display.textContent = firstOperand;
+    operator = '';
+    operatorAdded =false;
 })
 
 //operandsBtns
 operandsBtns.forEach((button)=>{
-    button.addEventListener('mousedown',()=>{
-    console.log(button.textContent);
-    firstOperand += button.textContent;
-    })
-    button.addEventListener('mouseup', ()=>{
-        display.textContent = firstOperand;
+    button.addEventListener('mousedown',(button)=>{
+        if(!operatorAdded){
+            // btnEventFirst(button);
+            console.log('first')
+        }else{
+            // btnEventSecond(button);
+            console.log('second')
+
+        }
     })
 })
 
@@ -33,5 +38,18 @@ operatorBtns.forEach((button)=>{
     button.addEventListener('mousedown',()=>{
        operator = button.textContent;
        display.textContent += operator;
+       operatorAdded =true;
     })
 })
+
+
+// function btnEventFirst(selector){//adds text content to the firstOperand
+//     selector.forEach((button)=>{
+//         button.addEventListener('mouseup',()=>firstOperand +=button.textContent)
+//     })
+// }
+// function btnEventSecond(selector){//adds text content to the secondOperand
+//     selector.forEach((button)=>{
+//          button.addEventListener('mouseup',()=>secondOperand += button.textContent)
+//     })
+// }
