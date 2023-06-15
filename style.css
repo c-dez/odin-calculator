@@ -11,7 +11,7 @@
 
 #calculator-container .display{
     display: flex;
-    background-color: rgb(0,0,0,.75);
+    background-color: rgb(0,0,0,.6);
     color: white;
     justify-content: flex-end;
     width: 100%;
@@ -44,7 +44,10 @@
     color: white;
     font-weight: bold;
     flex: 1;
-    
+    font-size: 36px;
+}
+#equals:hover{
+    background-color: black;
 }
 .button:hover{
     background-color: black;
@@ -53,3 +56,4 @@
 #operator{
     background-color: pink;
 }
+

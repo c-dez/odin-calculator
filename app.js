@@ -10,7 +10,7 @@ let firstOperand = '';
 let operator = '';
 //second operand
 let secondOperand = '';
-let operatorAdded = false;
+let operatorAdded = false;//if false operandsBtns add to firstOperand else secondOperand
 let result = 0;
 
 //operandsBtns
@@ -46,9 +46,25 @@ clearBtn.addEventListener('mousedown',()=>{
 })
 //equalsBtn
 equalsBtn.addEventListener('mousedown',()=>{
-    if(operator == '+'){
-        sum(firstOperand, secondOperand)
-        display.textContent = result;
+    switch (operator){
+        case '+':
+            sum(firstOperand, secondOperand);
+            display.textContent = result;
+            break;
+        case '-':
+            substraction(firstOperand,secondOperand)
+            display.textContent = result;
+            break;
+        case '*':
+            multiplication(firstOperand,secondOperand)
+            display.textContent = result;
+            break;
+        case '/':
+            division(firstOperand,secondOperand)
+            display.textContent = result;
+            break;
+        default:
+
     }
 })
 //negBtn
@@ -63,8 +79,25 @@ negBtn.addEventListener('mousedown', ()=>{
 })
 
 //functions for each operator
+//sum
 function sum(a, b){//a =firstOperand b = secondOperand
    result = parseFloat(a) + parseFloat(b)
+}
+//substraction
+function substraction(a,b){
+    result = parseFloat(a) - parseFloat(b)
+}
+//multiplication
+function multiplication(a,b){
+    result = parseFloat(a) *parseFloat(b);
+}
+//division
+function division(a,b){
+    if(a ==0 || b == 0){
+        result = 'ERROR!';
+    }else{
+        result = parseFloat(a) / parseFloat(b);
+    }
 }
 
 
