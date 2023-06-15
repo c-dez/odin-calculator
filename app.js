@@ -2,7 +2,7 @@ const display = document.querySelector('.display')
 const operandsBtns = document.querySelectorAll('#operand')
 const operatorBtns = document.querySelectorAll('#operator')
 const clearBtn = document.querySelector('#clear')
-
+const equalsBtn = document.querySelector('#equals')
 //first operand
 let firstOperand = '';
 //operator
@@ -10,25 +10,23 @@ let operator = '';
 //second operand
 let secondOperand = '';
 let operatorAdded = false;
-//clearBtn
-clearBtn.addEventListener('mousedown',()=>{
-    // display.textContent = '';
-    firstOperand = '';
-    display.textContent = firstOperand;
-    operator = '';
-    operatorAdded =false;
-})
 
 //operandsBtns
 operandsBtns.forEach((button)=>{
-    button.addEventListener('mousedown',(button)=>{
+    button.addEventListener('mousedown',()=>{
         if(!operatorAdded){
             // btnEventFirst(button);
-            console.log('first')
+            firstOperand += button.textContent;
+            display.textContent = firstOperand
+            console.log(firstOperand)
+            console.log(operatorAdded)
+
         }else{
             // btnEventSecond(button);
-            console.log('second')
-
+            secondOperand += button.textContent;
+            display.textContent= `${firstOperand} ${operator} ${secondOperand}`;
+            console.log(secondOperand)
+            console.log(operatorAdded)
         }
     })
 })
@@ -41,6 +39,17 @@ operatorBtns.forEach((button)=>{
        operatorAdded =true;
     })
 })
+//clearBtn
+clearBtn.addEventListener('mousedown',()=>{
+    // display.textContent = '';
+    firstOperand = '';
+    secondOperand = '';
+    operator = '';
+    operatorAdded =false;
+    display.textContent = '';
+})
+//equalsBtn
+
 
 
 // function btnEventFirst(selector){//adds text content to the firstOperand
